@@ -1,0 +1,12 @@
+.volumeManipulator {
+  display: inline-block;
+  position: relative;
+}
+
+.volumeManipulator::after {
+  content: "%";
+  position: absolute;
+  top: 2px;
+  right: 0.5em;
+  transition: all 0.05s ease-in-out;
+}

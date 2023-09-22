@@ -1,20 +1,20 @@
 {
-  "id": "dev.replugged.PluginTemplate",
-  "name": "Plugin Template",
-  "description": "A plugin template",
+  "id": "dev.tharki.VolumeManipulator",
+  "name": "VolumeManipulator",
+  "description": "Adds a number input to sliders and removes max limits from user volume sliders.",
+  "image": "https://i.imgur.com/yUNq7fd.png",
+  "source": "https://github.com/Tharki-God/VolumeManipulator",
   "author": {
-    "name": "replugged",
-    "discordID": "1000992611840049192",
-    "github": "replugged-org"
+    "name": "Ahlawat",
+    "discordID": "1025214794766221384",
+    "github": "Tharki-God"
   },
   "version": "1.0.0",
   "updater": {
-    "type": "github",
-    "id": "replugged-org/plugin-template"
+    "type": "store",
+    "id": "dev.tharki.VolumeManipulator"
   },
   "license": "MIT",
   "type": "replugged-plugin",
-  "renderer": "src/index.ts",
-  "source": "https://github.com/replugged-org/plugin-template",
-  "image": ["https://i.imgur.com/14CNs3a.png?CHANGE-THIS-URL"]
+  "renderer": "src/index.ts"
 }
