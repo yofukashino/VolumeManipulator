@@ -27,7 +27,7 @@ export default (): void => {
               size={TextInput.Sizes.MINI}
               min={args[0].minValue}
               max={args[0].maxValue}
-              value={args[0].value.toFixed(2)}
+              value={args[0].value.toFixed(0)}
               onKeyDown={(event) => event.stopPropagation()}
               onChange={(...innerArgs) => {
                 if (Number(innerArgs[0]) > 1000) {
