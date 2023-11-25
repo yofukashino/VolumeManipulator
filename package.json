@@ -1,6 +1,6 @@
 {
   "name": "hide-disabled-emojis",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Adds a number input to sliders and removes max limits from user volume sliders.",
   "engines": {
     "node": ">=14.0.0"
