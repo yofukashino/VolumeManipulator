@@ -1,5 +1,5 @@
 import { webpack } from "replugged";
-import * as Types from "../types";
+import Types from "../types";
 
 export const RemoteAudioSettings =
   webpack.getBySource<Types.GenericModule>("remote_audio_settings");

@@ -1,7 +1,6 @@
-import { components } from "replugged";
+import { TextInput } from "replugged/components";
 import { PluginInjector } from "../index";
 import { DiscordComponents } from "../lib/requiredModules";
-const { TextInput } = components;
 export default (): void => {
   PluginInjector.before(DiscordComponents.MenuSliderControl, "render", (args) => {
     if (!args[0]?.onChange?.toString?.()?.includes?.("setLocalVolume")) {

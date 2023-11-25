@@ -4,7 +4,7 @@ import "./styles.css";
 export const PluginLogger = Logger.plugin("VolumeManipulator");
 export const PluginInjector = new Injector();
 
-import { applyInjections } from "./patches/index";
+import applyInjections from "./patches/index";
 export const start = (): void => {
   applyInjections();
 };

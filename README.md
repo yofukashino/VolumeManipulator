@@ -3,7 +3,7 @@
 Adds a number input to sliders and removes max limits from user volume sliders.
 
 
-Direct Download Link: [dev.tharki.VolumeManipulator.asar](https://github.com/Tharki-God/VolumeManipulator/releases/latest/download/dev.tharki.VolumeManipulator.asar)
+Direct Download Link: [dev.tharki.VolumeManipulator.asar](https://github.com/TharkiDev/VolumeManipulator/releases/latest/download/dev.tharki.VolumeManipulator.asar)
 
 Install Link:
 

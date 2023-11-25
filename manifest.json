@@ -3,11 +3,11 @@
   "name": "VolumeManipulator",
   "description": "Adds a number input to sliders and removes max limits from user volume sliders.",
   "image": "https://i.imgur.com/E1xsuZ1.png",
-  "source": "https://github.com/Tharki-God/VolumeManipulator",
+  "source": "https://github.com/TharkiDev/VolumeManipulator",
   "author": {
     "name": "Ahlawat",
     "discordID": "1025214794766221384",
-    "github": "Tharki-God"
+    "github": "TharkiDev"
   },
   "version": "1.0.0",
   "updater": {

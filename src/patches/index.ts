@@ -1,6 +1,6 @@
 import patchRemoteAudioSettings from "./RemoteAudioSettings";
 import patchMenuSliderControl from "./MenuSliderControl";
-export const applyInjections = (): void => {
+export default (): void => {
   patchRemoteAudioSettings();
   patchMenuSliderControl();
 };

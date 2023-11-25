@@ -1,6 +1,5 @@
 export { types as DefaultTypes } from "replugged";
 import { types as DefaultTypes } from "replugged";
-export { ReactElement } from "react";
 export interface GenericModule extends Record<string, DefaultTypes.AnyFunction> {}
 
 export interface DiscordComponents {
@@ -10,3 +9,5 @@ export interface DiscordComponents {
     render: DefaultTypes.AnyFunction;
   };
 }
+
+export * as default from "./types";
