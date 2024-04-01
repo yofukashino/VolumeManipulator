@@ -1,5 +1,5 @@
 {
-  "name": "hide-disabled-emojis",
+  "name": "volume-manipulator",
   "version": "1.0.4",
   "description": "Adds a number input to sliders and removes max limits from user volume sliders.",
   "engines": {
