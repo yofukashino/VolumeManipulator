@@ -1,7 +1,8 @@
 import { PluginInjector } from "..";
-import { MediaEngineStore, PreloadedUserSettings } from "../lib/requiredModules";
+import Modules from "../lib/requiredModules";
 
 export default (): void => {
+  const { PreloadedUserSettings, MediaEngineStore } = Modules;
   PluginInjector.after(
     PreloadedUserSettings,
     "internalBinaryRead",

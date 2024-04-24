@@ -1,18 +1,17 @@
 import { types } from "replugged";
-import type { Store as StoreType } from "replugged/dist/renderer/modules/common/flux";
-
+import type { Store } from "replugged/dist/renderer/modules/common/flux";
+import { components } from "replugged/common";
 export namespace Types {
   export import DefaultTypes = types;
-  export type Store = StoreType;
   export type GenericModule = Record<string, DefaultTypes.AnyFunction>;
 
-  export interface DiscordComponents {
+  export type DiscordComponents = {
     AdvancedScrollerAuto: React.ComponentClass;
     MenuSliderControl: {
       $$typeof: symbol;
       render: DefaultTypes.AnyFunction;
     };
-  }
+  } & typeof components;
 
   export interface SettingsPreload {
     PreloadedUserSettings: {
@@ -167,8 +166,15 @@ export namespace Types {
     supportsScreenSoundshare: DefaultTypes.AnyFunction;
     supportsVideoHook: DefaultTypes.AnyFunction;
   }
+  export interface Modules {
+    loadModules?: () => Promise<void>;
+    PreloadedUserSettings?: SettingsPreload["PreloadedUserSettings"];
+    RemoteAudioContextSettings?: RemoteAudioContextSettings;
+    MediaEngineStore?: MediaEngineStore;
+  }
   export interface Settings {
     multiplier: number;
   }
 }
+
 export default Types;

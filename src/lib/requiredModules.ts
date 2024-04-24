@@ -1,15 +1,15 @@
 import { webpack } from "replugged";
 import Types from "../types";
 
-export const DiscordComponents = webpack.getByProps<Types.DiscordComponents>(
-  "MenuSliderControl",
-  "AdvancedScrollerAuto",
-);
+export const Modules: Types.Modules = {};
 
-export const { PreloadedUserSettings } =
-  webpack.getByProps<Types.SettingsPreload>("PreloadedUserSettings");
+Modules.loadModules = async (): Promise<void> => {
+  Modules.PreloadedUserSettings ??= await webpack
+    .waitForProps<Types.SettingsPreload>("PreloadedUserSettings")
+    .then(({ PreloadedUserSettings }) => PreloadedUserSettings);
+  Modules.RemoteAudioContextSettings ??=
+    await webpack.waitForProps<Types.RemoteAudioContextSettings>("updatePendingSettings");
+  Modules.MediaEngineStore ??= webpack.getByStoreName<Types.MediaEngineStore>("MediaEngineStore");
+};
 
-export const RemoteAudioContextSettings =
-  webpack.getByProps<Types.RemoteAudioContextSettings>("updatePendingSettings");
-
-export const MediaEngineStore = webpack.getByStoreName<Types.MediaEngineStore>("MediaEngineStore");
+export default Modules;
