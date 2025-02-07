@@ -4,7 +4,9 @@ import { defaultSettings } from "../lib/consts";
 import SliderTextInput from "../Components/SliderTextInput";
 import Types from "../types";
 export default (): void => {
-  const { MenuSliderControl } = components as Types.DiscordComponents;
+  const MenuSliderControl = Object.values(components).find((c) =>
+    c?.render?.toString?.()?.includes?.("slider"),
+  ) as Types.DiscordComponents["MenuSliderControl"];
   PluginInjector.before(MenuSliderControl, "render", (args) => {
     if (!args[0]?.onChange?.toString?.()?.includes?.("setLocalVolume")) {
       return args;

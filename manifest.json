@@ -3,11 +3,11 @@
   "name": "VolumeManipulator",
   "description": "Adds a number input to sliders and removes max limits from user volume sliders.",
   "image": "https://i.imgur.com/E1xsuZ1.png",
-  "source": "https://github.com/YofukashiNo/VolumeManipulator",
+  "source": "https://github.com/yofukashino/VolumeManipulator",
   "author": {
     "name": "Nanakusa",
     "discordID": "1121961711080050780",
-    "github": "YofukashiNo"
+    "github": "yofukashino"
   },
   "version": "1.0.6",
   "updater": {
