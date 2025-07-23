@@ -11,7 +11,7 @@ export default (): void => {
       const userSettings = MediaEngineStore.getSettings("default");
       const streamSettings = MediaEngineStore.getSettings("stream");
       for (const userId in audioContextSettings.user) {
-        if (userSettings.localVolumes[userId] > 200) {
+        if (userSettings.localVolumes[userId] > 199) {
           audioContextSettings.user[userId] ??= {};
           audioContextSettings.user[userId].volume = userSettings.localVolumes[userId];
         }

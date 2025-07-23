@@ -17,10 +17,11 @@ export default (): void => {
   PluginInjector.after(
     MenuSliderControl,
     "render",
-    ([{ value, onChange, minValue, maxValue }], res: React.ReactElement) => {
+    ([{ value, onChange, minValue, maxValue, ...args }], res: React.ReactElement) => {
       if (!onChange?.toString?.()?.includes?.("setLocalVolume")) {
         return res;
       }
+      res.key = `${value}`;
       return (
         <SliderTextInput value={value} onChange={onChange} minValue={minValue} maxValue={maxValue}>
           {res}

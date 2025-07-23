@@ -1,13 +1,29 @@
 .volumeManipulator {
-  display: inline-block;
-  position: relative;
   width: 100%;
 }
-
-.volumeManipulator::after {
-  content: "%";
+.volumeManipulator-input {
+  flex-direction: row-reverse;
+  display: flex;
+  align-items: center;
+}
+.volumeManipulator-input .volumeManipulator-suffix {
   position: absolute;
-  top: 2px;
-  right: 0.5em;
-  transition: all 0.05s ease-in-out;
+  margin-right: 5%;
+}
+.volumeManipulator-input > input::-webkit-outer-spin-button,
+.volumeManipulator-input > input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.volumeManipulator-input.volumeManipulator-errorState .volumeManipulator-suffix {
+  color: var(--text-danger);
+}
+
+.volumeManipulator > .volumeManipulator-input.volumeManipulator-errorState > input {
+  border: 1px solid var(--text-danger);
+  color: var(--text-danger);
+}
+.volumeManipulator > .volumeManipulator-input.volumeManipulator-errorState > input:focus,
+.volumeManipulator-input.volumeManipulator-errorState input:hover {
+  border: 2px solid var(--text-danger);
 }
