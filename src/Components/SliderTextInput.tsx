@@ -1,8 +1,7 @@
-import { classNames } from "replugged/common";
-import { TextInput, Text } from "replugged/components";
+import { React, classNames } from "replugged/common";
+import { Text, TextInput } from "replugged/components";
 import { SettingValues } from "../index";
 import { defaultSettings } from "../lib/consts";
-import { React } from "replugged/common";
 export default ({
   children,
   minValue,
@@ -18,6 +17,7 @@ export default ({
 }) => {
   const [value, setValue] = React.useState(v?.toFixed?.(0).toString());
   const [errorState, setErrorState] = React.useState(false);
+
   React.useEffect(() => {
     if (
       Number(value) > SettingValues.get("multiplier", defaultSettings.multiplier) * 200 ||
@@ -29,6 +29,11 @@ export default ({
     onChange(value);
     if (errorState) setErrorState(false);
   }, [value]);
+
+  React.useEffect(() => {
+    setValue(v?.toFixed?.(0).toString());
+  }, [v]);
+
   return (
     <div>
       {children}
@@ -42,6 +47,7 @@ export default ({
           onKeyDown={(event) => event.stopPropagation()}
           onChange={(value) => {
             setValue(value);
+            children.key = value;
           }}
           className={classNames("volumeManipulator-input", {
             "volumeManipulator-errorState": errorState,
