@@ -1,6 +1,6 @@
 {
   "name": "volume-manipulator",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Adds a number input to sliders and removes max limits from user volume sliders.",
   "engines": {
     "node": ">=14.0.0"
