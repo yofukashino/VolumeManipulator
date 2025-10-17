@@ -1,5 +1,5 @@
 import { PluginInjector } from "@this";
-import { PreloadedUserSettings, MediaEngineStore } from "@lib/RequiredModules";
+import { MediaEngineStore, PreloadedUserSettings } from "@lib/RequiredModules";
 
 PluginInjector.after(
   PreloadedUserSettings,

@@ -17,8 +17,8 @@ export default ({
   maxValue: number;
   value: number;
   onChange: (e: number | string) => void;
-}) => {
-  const [value, setValue] = React.useState(originalValue?.toFixed?.(0).toString());
+}): React.ReactElement => {
+  const [value, setValue] = React.useState(originalValue?.toFixed?.(0));
   const [errorState, setErrorState] = React.useState(false);
 
   React.useEffect(() => {
@@ -34,7 +34,7 @@ export default ({
   }, [value]);
 
   React.useEffect(() => {
-    setValue(originalValue?.toFixed?.(0).toString());
+    setValue(originalValue?.toFixed?.(0));
   }, [originalValue]);
 
   return (

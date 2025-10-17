@@ -7,10 +7,10 @@ import type { MediaEngineStore } from "@lib/RequiredModules/MediaEngineStore";
 export namespace Types {
   export import DefaultTypes = types;
   export type Store = Flux.Store;
-  export type MenuSlider = {
+  export interface MenuSlider {
     $$typeof: "Symbol(react.forward_ref)";
     render: Design.MenuSliderControl;
-  };
+  }
 
   export interface Modules {
     Proxy: Exclude<Modules, "Proxy" | "loadModules">;
