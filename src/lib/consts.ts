@@ -1,3 +1,3 @@
-export const defaultSettings = {
+export const DefaultSettings = {
   multiplier: 2.5,
 };

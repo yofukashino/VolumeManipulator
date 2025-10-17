@@ -1,10 +1,16 @@
-import Modules from "../lib/requiredModules";
-import injectMenuSliderControl from "./MenuSliderControl";
-import injectPreloadedUserSettings from "./PreloadedUserSettings";
+import { PluginInjector, PluginLogger } from "@this";
+import Modules from "@lib/RequiredModules";
+
 export const applyInjections = async (): Promise<void> => {
-  await Modules.loadModules();
-  injectMenuSliderControl();
-  injectPreloadedUserSettings();
+  try {
+    await Modules.loadModules();
+    await import("./MenuSliderControl");
+    await import("./PreloadedUserSettings");
+  } catch (err) {
+    PluginLogger.error(err);
+  }
 };
 
-export default { applyInjections };
+export const removeInjections = (): void => PluginInjector.uninjectAll();
+
+export default { applyInjections, removeInjections };

@@ -1,0 +1,22 @@
+.volumeManipulator-input {
+  background-color: var(--input-background);
+  border: unset;
+  border-radius: 8px;
+  color: var(--text-default);
+  font-size: 12px;
+  padding-left: var(--space-12);
+  height: 32px;
+}
+.volumeManipulator-suffix {
+  color: var(--text-secondary);
+}
+
+input.volumeManipulator-input::-webkit-outer-spin-button,
+input.volumeManipulator-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.volumeManipulator.volumeManipulator-errorState .volumeManipulator-suffix,
+.volumeManipulator.volumeManipulator-errorState .volumeManipulator-input {
+  color: var(--text-danger);
+}

@@ -1,28 +1,28 @@
-import { PluginInjector } from "..";
-import Modules from "../lib/requiredModules";
+import { PluginInjector } from "@this";
+import { PreloadedUserSettings, MediaEngineStore } from "@lib/RequiredModules";
 
-export default (): void => {
-  const { PreloadedUserSettings, MediaEngineStore } = Modules;
-  PluginInjector.after(
-    PreloadedUserSettings,
-    "internalBinaryRead",
-    (_args, res: { audioContextSettings: Record<"user" | "stream", { volume: number }> }) => {
-      const { audioContextSettings } = res;
-      const userSettings = MediaEngineStore.getSettings("default");
-      const streamSettings = MediaEngineStore.getSettings("stream");
-      for (const userId in audioContextSettings.user) {
-        if (userSettings.localVolumes[userId] > 199) {
-          audioContextSettings.user[userId] ??= {};
-          audioContextSettings.user[userId].volume = userSettings.localVolumes[userId];
-        }
+PluginInjector.after(
+  PreloadedUserSettings,
+  "internalBinaryRead",
+  (_args, { audioContextSettings, ...res }) => {
+    const userSettings = MediaEngineStore.getSettings("default");
+    const streamSettings = MediaEngineStore.getSettings("stream");
+
+    for (const userId in audioContextSettings.user) {
+      const localUserVolume = userSettings.localVolumes[userId];
+      if (localUserVolume) {
+        audioContextSettings.user[userId] ??= { volume: localUserVolume };
+        audioContextSettings.user[userId].volume = localUserVolume;
       }
-      for (const userId in audioContextSettings.stream) {
-        if (streamSettings.localVolumes[userId] > 199) {
-          audioContextSettings.stream[userId] ??= {};
-          audioContextSettings.stream[userId].volume = streamSettings.localVolumes[userId];
-        }
+    }
+
+    for (const userId in audioContextSettings.stream) {
+      const localStreamVolume = streamSettings.localVolumes[userId];
+      if (localStreamVolume > 199) {
+        audioContextSettings.stream[userId] ??= { volume: localStreamVolume };
+        audioContextSettings.stream[userId].volume = localStreamVolume;
       }
-      return res;
-    },
-  );
-};
+    }
+    return { audioContextSettings, ...res };
+  },
+);
